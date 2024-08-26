@@ -1,0 +1,2 @@
+# Projet data Claudie Perrigaud 
+Ce github contient la totalité des versions permettant la mise en place du processus ETL nécessaire à la valorisation des données du site internet et des réseaux sociaux de Claudie Perrigaud, artiste sculptrice.
