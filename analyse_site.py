@@ -46,7 +46,7 @@ def get_report():
         return None
 
 # Appeler la fonction et écrire les résultats dans un fichier CSV
-def export_to_csv(report, filename="extraction_donnees.csv"):
+def export_to_csv(report, filename="extraction_donnees_site.csv"):
     if report:
         with open(filename, mode="w", newline="") as file:
             writer = csv.writer(file)
