@@ -1,112 +1,29 @@
-date,pageTitle,deviceCategory,landingPage,country,sessions,totalUsers,screenPageViews,averageSessionDuration,bounceRate,engagedSessions,newUsers,eventCount
-20240808,Claudie Perrigaud Sculptures,mobile,/,France,4,4,6,38.7050555,0.25,3,4,21
-20240812,Claudie Perrigaud Sculptures,desktop,/,France,3,3,3,167.12337166666666,0.33333333333333331,2,2,9
-20240806,Claudie Perrigaud Sculptures,desktop,/,France,2,1,6,229.5373,0.5,1,0,12
-20240812,Store 2 — Claudie Perrigaud Sculptures,desktop,/,France,2,2,2,26.935664,0,2,0,2
-20240816,Claudie Perrigaud Sculptures,mobile,/,France,2,2,2,35.5068315,0,2,2,8
-20240821,Claudie Perrigaud Sculptures,desktop,/,France,2,2,3,22.323386,0,2,0,7
-20240821,Store 2 — Claudie Perrigaud Sculptures,desktop,/,France,2,2,13,221.6963125,0,2,0,16
-20240821,Zèbre de Grévy — Claudie Perrigaud Sculptures,desktop,/,France,2,2,5,551.9757115,0,2,0,7
-20240729,Claudie Perrigaud Sculptures,desktop,(not set),France,1,1,0,0.001036,1,0,0,2
-20240729,Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,0,1,0,1,3
-20240729,Claudie Perrigaud Sculptures,desktop,/contact,France,1,1,8,86.408101,0,1,0,21
-20240729,Conditions générales de ventes — Claudie Perrigaud Sculptures,desktop,(not set),France,1,1,0,0.000171,1,0,0,1
-20240729,Conditions générales de ventes — Claudie Perrigaud Sculptures,desktop,/contact,France,1,1,1,5.064616,0,1,0,2
-20240729,Contact — Claudie Perrigaud Sculptures,desktop,/contact,France,1,1,1,12.300605,0,1,1,5
-20240729,Protection des données personnelles — Claudie Perrigaud Sculptures,desktop,(not set),France,1,1,0,0,1,0,0,2
-20240729,Protection des données personnelles — Claudie Perrigaud Sculptures,desktop,/contact,France,1,1,1,40.717721,0,1,0,2
-20240730,Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,16.742527,0,1,1,4
-20240730,Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,29.099093,0,1,1,4
-20240730,Contact — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,6.936385,0,1,0,2
-20240801,Claudie Perrigaud Sculptures,mobile,/,France,1,1,2,50.23299,0,1,1,7
-20240801,L'Artiste — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,3.59859,0,1,0,2
-20240802,Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,10.700139,0,1,0,5
-20240802,General 2 — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,10.932784,0,1,0,2
-20240804,Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,16.407396,0,1,1,4
-20240805,""" Dualité II"" — Claudie Perrigaud Sculptures",mobile,/inscription-a-un-stage,France,1,1,1,38.967266,0,1,0,1
-20240805,Appointments 2 — Claudie Perrigaud Sculptures,mobile,/inscription-a-un-stage,France,1,1,2,33.898177,0,1,0,6
-20240805,Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,0,0,1,1,3
-20240805,D'ici ou d'ailleurs — Claudie Perrigaud Sculptures,mobile,/inscription-a-un-stage,France,1,1,1,2.237325,0,1,0,2
-20240805,Store 2 — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,9.896346,0,1,0,1
-20240805,Store 2 — Claudie Perrigaud Sculptures,mobile,/inscription-a-un-stage,France,1,1,2,299.237998,0,1,0,6
-20240806,Instinct maternel — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,52.152352,0,1,0,1
-20240806,La symphonie — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,33.164946,0,1,0,3
-20240806,La symphonie — Claudie Perrigaud Sculptures,desktop,/boutique,France,1,1,1,317.45752,0,1,0,2
-20240806,Les Divas — Claudie Perrigaud Sculptures,desktop,/,France,1,1,3,75.725797,0,1,0,3
-20240806,Ode zébrée — Claudie Perrigaud Sculptures,desktop,/,France,1,1,7,724.302661,0,1,0,9
-20240806,Panda I — Claudie Perrigaud Sculptures,desktop,/,France,1,1,8,164.646698,0,1,0,12
-20240806,Panda II — Claudie Perrigaud Sculptures,desktop,/,France,1,1,5,885.94695,0,1,0,8
-20240806,Store 2 — Claudie Perrigaud Sculptures,desktop,/,France,1,1,6,528.289093,0,1,0,8
-20240806,Store 2 — Claudie Perrigaud Sculptures,desktop,/boutique,France,1,1,1,24.526858,0,1,1,4
-20240806,Sur la banquise — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,59.495691,0,1,0,2
-20240806,Volupté — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,25.736831,0,1,0,4
-20240807,Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,2.729011,0,1,1,4
-20240807,Claudie Perrigaud Sculptures,desktop,/,Ireland,1,1,5,8.402169,0,1,1,11
-20240807,Claudie Perrigaud Sculptures | Paiement sécurisé,desktop,/,Ireland,1,1,1,4.594922,0,1,0,3
-20240807,Contact — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,210.107198,0,1,0,3
-20240807,Panda II — Claudie Perrigaud Sculptures,desktop,/,Ireland,1,1,3,136.620866,0,1,0,6
-20240807,Store 2 — Claudie Perrigaud Sculptures,desktop,/,Ireland,1,1,4,360.578665,0,1,0,7
-20240808,Claudie Perrigaud Sculptures,desktop,/,United States,1,1,1,0,1,0,1,3
-20240808,Dualité I — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,11.368757,0,1,0,3
-20240808,L'Artiste — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,42.765086,0,1,0,2
-20240809,Claudie Perrigaud Sculptures,desktop,/,United States,1,1,1,0,1,0,1,3
-20240809,Pois Plumes — Claudie Perrigaud Sculptures,mobile,/boutique/p/pois-plumes,Indonesia,1,1,1,9.627197,1,0,1,4
-20240810,Claudie Perrigaud Sculptures,mobile,/,Indonesia,1,1,1,10.667221,0,1,0,3
-20240810,L'Artiste — Claudie Perrigaud Sculptures,mobile,/,Indonesia,1,1,1,116.223555,0,1,0,2
-20240810,Sur la banquise — Claudie Perrigaud Sculptures,mobile,/,Indonesia,1,1,4,11.266978,0,1,0,5
-20240811,""" Dualité II"" — Claudie Perrigaud Sculptures",desktop,/boutique/p/dualit-i,France,1,1,1,145.85185,0,1,0,2
-20240811,Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,0,1,0,1,3
-20240811,Claudie Perrigaud Sculptures,desktop,/,United States,1,1,1,30.267101,0,1,1,4
-20240811,Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,23.792884,0,1,1,4
-20240811,Dualité I — Claudie Perrigaud Sculptures,desktop,/boutique/p/dualit-i,France,1,1,1,35.268301,0,1,1,5
-20240812,Claudie Perrigaud Sculptures,mobile,/,South Africa,1,1,1,0,1,0,1,3
-20240813,Claudie Perrigaud Sculptures,desktop,/,Brazil,1,1,2,28.393338,0,1,1,6
-20240813,Claudie Perrigaud Sculptures,desktop,/,France,1,1,3,106.517067,0,1,1,8
-20240813,Claudie Perrigaud Sculptures,desktop,/,United States,1,1,1,0,1,0,1,3
-20240813,Claudie Perrigaud Sculptures,mobile,/,France,1,1,2,189.561667,0,1,1,6
-20240813,Contacts Privés — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,12.355688,0,1,0,3
-20240813,Délicatesse — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,19.494477,0,1,0,3
-20240813,Ebène — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,27.886638,0,1,0,2
-20240813,General 2 — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,39.454944,0,1,0,3
-20240813,L'Artiste — Claudie Perrigaud Sculptures,desktop,/,Brazil,1,1,1,207.396045,0,1,0,2
-20240813,L'Artiste — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,43.377644,0,1,0,3
-20240813,Mélancolie — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,420.34427,0,1,0,3
-20240813,Store 2 — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,196.275508,0,1,0,4
-20240813,Store 2 — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,160.536123,0,1,0,2
-20240813,Sur la banquise — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,27.431581,0,1,0,2
-20240813,Zèbre de Grévy — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,23.591073,0,1,0,2
-20240814,Claudie Perrigaud Sculptures,desktop,/,United States,1,1,1,30.475599,0,1,1,4
-20240814,Claudie Perrigaud Sculptures,mobile,/,France,1,1,2,34.747982,0,1,1,7
-20240814,Contacts Privés — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,12.69645,0,1,0,3
-20240814,L'Artiste — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,80.173512,0,1,0,3
-20240814,Protection des données personnelles — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,31.421438,0,1,0,2
-20240814,Store 2 — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,167.730167,0,1,0,3
-20240814,Zèbre de Grévy — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,4.412056,0,1,0,2
-20240816,Dualité I — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,2.450218,0,1,0,2
-20240817,Blog 1 — Claudie Perrigaud Sculptures,desktop,/blog,United States,1,1,1,0,1,0,1,3
-20240817,Claudie Perrigaud Sculptures,desktop,/oeuvres/p/causerie-ii,United States,1,1,1,5.720698,1,0,1,4
-20240817,Kanda — Claudie Perrigaud Sculptures,mobile,/blog/lart-et-limportance-de-la-transmission-,France,1,1,1,8.844353,0,1,0,2
-20240817,L'Artiste — Claudie Perrigaud Sculptures,mobile,/blog/lart-et-limportance-de-la-transmission-,France,1,1,1,2.310649,0,1,0,2
-20240817,L’art et l’importance de la transmission : — Claudie Perrigaud Sculptures,mobile,/blog/lart-et-limportance-de-la-transmission-,France,1,1,1,5.32982,0,1,0,3
-20240817,Sagesse animale — Claudie Perrigaud Sculptures,mobile,/blog/lart-et-limportance-de-la-transmission-,France,1,1,3,9.861148,0,1,0,4
-20240817,Store 2 — Claudie Perrigaud Sculptures,mobile,/blog/lart-et-limportance-de-la-transmission-,France,1,1,1,73.811982,0,1,0,3
-20240818,Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,0,1,0,1,3
-20240818,Claudie Perrigaud Sculptures,desktop,/,Russia,1,1,1,0,1,0,1,3
-20240818,Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,0,1,0,0,2
-20240819,Claudie Perrigaud Sculptures,desktop,/,United States,1,1,1,0,1,0,1,3
-20240820,Blog 1 — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,3.451403,0,1,0,2
-20240820,Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,9.152738,0,1,0,3
-20240820,Claudie Perrigaud Sculptures,mobile,/,France,1,1,3,365.451767,0,1,1,10
-20240820,L'Artiste — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,33.19446,0,1,0,3
-20240820,Store 2 — Claudie Perrigaud Sculptures,mobile,/,France,1,1,1,84.867408,0,1,0,3
-20240820,Sur la banquise — Claudie Perrigaud Sculptures,desktop,/,France,1,1,1,1767.246026,0,1,0,3
-20240821,Claudie Perrigaud Sculptures,desktop,/,United States,1,1,1,29.724312,0,1,1,4
-20240821,D'ici ou d'ailleurs — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,193.229454,0,1,0,3
-20240821,Dans les étoiles — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,72.533326,0,1,0,3
-20240821,Ebène — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,60.783402,0,1,0,3
-20240821,Ebène — Claudie Perrigaud Sculptures,mobile,/boutique/p/shguodijom1os6uz9axr13gl8pqz8h,(not set),1,1,1,0,1,0,1,3
-20240821,L'enfant — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,55.641399,0,1,0,3
-20240821,Osmose — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,94.021124,0,1,0,2
-20240821,Sur la banquise — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,71.641893,0,1,0,2
-20240821,Urban Bird — Claudie Perrigaud Sculptures,desktop,/,France,1,1,2,76.268812,0,1,0,2
-20240821,Zèbre de Grévy — Claudie Perrigaud Sculptures,mobile,/boutique/p/zbre-de-grvy,France,1,1,3,10.2259,0,1,1,6
+date,sessions,totalUsers,screenPageViews,averageSessionDuration,bounceRate,engagedSessions,newUsers,eventCount
+20240902,8,6,48,2170.6941495,0.375,5,4,135
+20240823,7,7,23,154.62283614285712,0.14285714285714285,6,6,62
+20240826,7,6,14,449.98256957142854,0.42857142857142855,4,3,39
+20240830,7,6,12,66.846348142857138,0.7142857142857143,2,6,37
+20240824,6,6,7,17.956884666666664,0.5,3,4,21
+20240808,5,5,9,41.790813,0.4,3,5,29
+20240821,5,5,40,451.21208839999997,0.2,4,3,61
+20240811,4,4,5,58.795034,0.25,3,4,18
+20240812,4,4,6,138.81036075,0.5,2,3,14
+20240813,4,4,19,375.65401575,0.25,3,4,52
+20240825,4,4,9,74.149931,0.25,3,4,24
+20240828,4,2,15,84.92462075,0.5,2,0,21
+20240831,4,2,14,84.3014535,0.75,1,2,32
+20240806,3,2,44,1116.839999,0.33333333333333331,2,1,68
+20240817,3,3,9,35.292883333333329,0.66666666666666663,1,2,21
+20240818,3,3,3,0,1,0,2,8
+20240822,3,3,8,1040.7713473333333,0,3,2,16
+20240901,3,3,17,116.12803000000001,0.33333333333333331,2,3,34
+20240805,2,2,8,192.118556,0,2,1,19
+20240807,2,2,15,361.5164155,0,2,2,34
+20240809,2,2,2,4.8135985,1,0,2,7
+20240814,2,2,8,180.828602,0,2,2,24
+20240816,2,2,3,36.7319405,0,2,2,10
+20240820,2,2,8,1131.681901,0,2,1,24
+20240804,1,1,1,16.407396,0,1,1,4
+20240810,1,1,6,138.157754,0,1,0,10
+20240819,1,1,1,0,1,0,1,3
+20240827,1,1,6,334.294283,0,1,1,13
