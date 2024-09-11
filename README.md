@@ -96,14 +96,66 @@ Transformation des Données : Les données manquantes ont été supprimées via 
 
 #### Fusion des Données :
 Le script pour fusionner les données extraites avec celles des réseaux sociaux a été testé pour vérifier que les données étaient correctement combinées et nettoyées. Cette étape est cruciale car elle permet de créer une base de données prête à l’analyse
-Chargement dans MySQL : Le script pour insérer les données dans la base de données MySQL a été testé pour garantir que les données étaient correctement insérées dans la base de données sans erreurs.
+
+#### Chargement dans MySQL :
+Le script pour insérer les données dans la base de données MySQL a été testé pour garantir que les données étaient correctement insérées dans la base de données sans erreurs.
 
 ## **2.1 Extraction des données**
 L'extraction des données du site web via l'API Google Analytics est essentielle pour obtenir des métriques précises sur la performance du site. Étant donné que l’abonnement de l’artiste n’inclut pas la possibilité d’utiliser les API du site internet (squarespace), le choix s’est porté sur google analytics qui est relativement simple d’initialisation et d’utilisation et qui regroupe toutes les métriques importantes. Cette étape est automatisée pour se dérouler chaque mois afin de fournir des nouvelles données fraîches pour l'analyse.
+```python
+@task
+def get_google_analytics_data():
+    SERVICE_ACCOUNT_FILE = 'C:/Users/arthu/OneDrive/Documents/Projet_Claudie_Perrigaud/projet-claudie-perrigaud-8e14bf43e103.json'
+    SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
+    PROPERTY_ID = '452047964'
+
+    credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+    service = build('analyticsdata', 'v1beta', credentials=credentials)
+```
 
 Dans cette première section, j’ai implémenté une tâche qui extrait les données de Google Analytics en utilisant l’API de Google Analytics. Cela permet d'automatiser la collecte des métriques du site web de Claudie Perrigaud.
 
 La première étape consiste à utiliser un fichier de compte de service (SERVICE_ACCOUNT_FILE) pour authentifier l’accès à l’API Google Analytics. Ce fichier est généré au format json depuis Google Cloud Platform et contient toutes les informations d'identification nécessaires pour accéder aux données de Google Analytics. Il y a également Le paramètre SCOPES qui est défini en readonly ce qui signifie que le script peut uniquement lire les données présentes dans Google Analytics. Pour ce qui est de l’identification du site internet de Claudie Perrigaud sur Google Analytics, c’est l’objet PROPERTY_ID qui nous en informe. Il s'agit d'un identifiant unique associé à chaque compte Google Analytics, permettant de spécifier le site web dont nous souhaitons extraire les données. Enfin, on utilise les informations d’identification (credentials) pour construire le service API. A noter que même si nous utilisons la version beta, elle contient la totalité des outils nécessaires au bon fonctionnement de notre projet.
+
+```python
+    try:
+        response = service.properties().runReport(
+            property='properties/' + PROPERTY_ID,
+            body={
+                'dateRanges': [{'startDate': '30daysAgo', 'endDate': 'today'}],
+                'metrics': [
+                    {'name': 'sessions'},
+                    {'name': 'totalUsers'},
+                    {'name': 'screenPageViews'},
+                    {'name': 'averageSessionDuration'},
+                    {'name': 'bounceRate'},
+                    {'name': 'engagedSessions'},
+                    {'name': 'newUsers'},
+                    {'name': 'eventCount'}
+                ],
+                'dimensions': [
+                    {'name': 'date'}
+                ]
+            }
+        ).execute()
+
+        with open('C:/Users/arthu/OneDrive/Documents/Projet_Claudie_Perrigaud/extraction_donnees_site.csv', mode="w", newline="") as file:
+            writer = csv.writer(file)
+            header = [dimension['name'] for dimension in response.get('dimensionHeaders', [])] + \
+                     [metric['name'] for metric in response.get('metricHeaders', [])]
+            writer.writerow(header)
+            rows = response.get('rows', [])
+            for row in rows:
+                data_row = [value.get('value', '') for value in row.get('dimensionValues', [])] + \
+                          [value.get('value', '') for value in row.get('metricValues', [])]
+                writer.writerow(data_row)
+
+        print("Les données ont été exportées avec succès vers extraction_donnees_site.csv")
+
+    except HttpError as err:
+        print(f'Une erreur est survenue: {err}')
+```
 
 La deuxième partie d’extraction des données du site internet consiste à renseigner les métriques, dimensions, la période de temps pour ainsi exporter les données dans un fichier csv.
 Nous rentrons ensuite dans le script les différentes métriques que nous souhaitons analyser ainsi que la période de temps sur laquelle récupérer les données, ici mensuel, à l’aide de la clé de dictionnaire python suivante: 'dateRanges': [{'startDate': '30daysAgo', 'endDate': 'today'}]. Notre projet contient plusieurs métriques pour une seule dimension à savoir la date.
@@ -114,22 +166,121 @@ Le script exporte ensuite les résultats de la requête dans un fichier csv avec
 ## **2.2 Transformation des données**
 
 La partie transformation et nettoyage des données a été directement imbriqué avec la seconde tâche de fusion des données. Pour ce qui est des valeurs manquantes, après études des données, nous remarquons qu’elles peuvent être remplacées par 0 au lieu d’être supprimées et ainsi perdre de l’information. Ceci étant effectuée via cette commande : donnees_fusionnees.fillna(0, inplace=True).
-Ensuite, il a été nécessaire d’harmoniser les dates en leur attribuant le même format via cette fonction : reseaux['date'] = pd.to_datetime(reseaux['date'], format='%d/%m/%Y') site['date'] = pd.to_datetime(site['date'], format='%Y%m%d')
+Ensuite, il a été nécessaire d’harmoniser les dates en leur attribuant le même format via cette fonction :
+```python
+reseaux['date'] = pd.to_datetime(reseaux['date'], format='%d/%m/%Y') 
+site['date'] = pd.to_datetime(site['date'], format='%Y%m%d')
+```
 Cette fonction Pandas est indispensable afin d’effectuer la fusion des deux tables.
 
 ## **2.3 Fusion des données**
+```python
+@task
+def merge_data():
+    # Chargement des données
+    reseaux = pd.read_csv('C:/Users/arthu/OneDrive/Documents/Projet_Claudie_Perrigaud/extraction_donnees_reseaux.csv', sep=',')
+    site = pd.read_csv('C:/Users/arthu/OneDrive/Documents/Projet_Claudie_Perrigaud/extraction_donnees_site.csv', sep=',')
 
+    # Conversion des colonnes de date au format datetime
+    reseaux['date'] = pd.to_datetime(reseaux['date'], format='%d/%m/%Y')
+    site['date'] = pd.to_datetime(site['date'], format='%Y%m%d')
+
+    # Fusion des deux DataFrames
+    donnees_fusionnees = pd.merge(reseaux, site, on='date', how='outer')
+    
+    # Suppression des lignes contenant des valeurs manquantes
+    # Remplacement des valeurs manquantes par 0
+    donnees_fusionnees.fillna(0, inplace=True)
+
+    # Sauvegarde des données fusionnées
+    donnees_fusionnees.to_csv('C:/Users/arthu/OneDrive/Documents/Projet_Claudie_Perrigaud/donnees_fusionnees.csv', index=False)
+
+    print("Fusion des données réalisée avec succès.")
+
+    return donnees_fusionnees
+```
 La fonction merge_data est ensuite implémentée via Prefect, elle représente la deuxième étape de ce processus ETL. Elle se charge de fusionner les données provenant des réseaux sociaux et du site web avant leur stockage dans la base de données MySQL. Plusieurs fonctions Pandas sont utilisées dans cette tâche, la fonction pd.read_csv() permet le chargement des données des deux sources. La méthode pd.merge() est ensuite implémentée avec une jointure externe how=’outer’, cela signifie que la totalité des lignes des deux fichiers seront intégrées. Pour terminer, le fichier avec les données fusionnées est ensuite sauvegardé au format csv dans le répertoire du projet.
 
 ## **2.4 Chargement des données**
-
+```python
+@task
+def save_to_mysql(dataframe):
+    # Configuration de la connexion à MySQL
+    connection = pymysql.connect(
+        host='localhost',         
+        user='root',              
+        password='Mecano44!',      
+        database='projet_claudie_perrigaud'    
+    )
+    
+    # Nom de table dynamique avec la date et l'heure pour éviter la suppression des données
+    table_name = "analyse_donnees_" + datetime.now().strftime('%Y%m%d_%H%M%S')
+```
 La dernière étape du pipeline de traitement est orchestrée autour de la fonction save_to_mysql permettant le stockage dans une base de données MySQL.
 Après s’être connectée à la base de données initialisée pour cette table, une table dynamique est créée de manière à ce que les données précédentes soient sauvegardées à chaque nouvelle exécution. Chaque table portera donc un nom unique généré à partir de la date et l’heure du jour de l’exécution du script. 
 
+```python
+    try:
+        with connection.cursor() as cursor:
+            # Création de la table avec toutes les colonnes nécessaires
+            create_table_query = f"""
+            CREATE TABLE IF NOT EXISTS {table_name} (
+                date DATE,
+                couverture_facebook FLOAT,
+                visites_facebook INT,
+                interactions_facebook INT,
+                couverture_instagram FLOAT,
+                interactions_instagram INT,
+                visites_instagram INT,
+                sessions INT,
+                totalUsers INT,
+                screenPageViews INT,
+                averageSessionDuration FLOAT,
+                bounceRate FLOAT,
+                engagedSessions INT,
+                newUsers INT,
+                eventCount INT
+            );
+            """
+            cursor.execute(create_table_query)
+
+            # Insertion des données
+            insert_query = f"""
+            INSERT INTO {table_name} (
+                date, couverture_facebook, visites_facebook, interactions_facebook,
+                couverture_instagram, interactions_instagram, visites_instagram,
+                sessions, totalUsers, screenPageViews, averageSessionDuration,
+                bounceRate, engagedSessions, newUsers, eventCount
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            
+            for _, row in dataframe.iterrows():
+                cursor.execute(insert_query, tuple(row))
+
+        # Commit des modifications
+        connection.commit()
+        print("Les données ont été enregistrées dans la base de données MySQL avec succès.")
+
+    finally:
+        connection.close()
+```
 La table est ensuite créé avec toutes les colonnes nécessaires pour accueillir les données. Elles sont insérées via une requête SQL INSERT INTO et la méthode cursor.execute() parcours chaque ligne du dataframe et insère les valeurs. Les données insérées sont ensuite validées via la commande connection.commit() qui permet l’enregistrement permanent dans la table MySQL. La connexion est ensuite fermée afin de libérer les ressources et éviter des connexions inutiles. Cette étape permet l’enregistrement dans une base de données MySQL avec un système assez flexible permettant une persistance des données et un historique bien défini.
 
 
 ## **2.5 Exécution du pipeline**
+
+```python
+@flow
+def data_pipeline():
+    get_google_analytics_data()
+    merged_data = merge_data()
+    save_to_mysql(merged_data)
+
+# Exécution du flux
+if __name__ == "__main__":
+    data_pipeline()
+```
 
 Pour terminer, les différentes étapes initialisées précédemment sont intégrées dans la fonction data_pipeline qui est un outil de gestion de workflows dans Prefect afin d’automatiser l'enchaînement des différentes tâches.
 A la suite de cela, le bloc final permet de lancer le pipeline de données dès lors que le script est exécuté.
