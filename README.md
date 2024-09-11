@@ -73,31 +73,31 @@ Prise de Décision Éclairée: Capacités de prise de décision basées sur des 
 #### Explication des données
 Ce projet a pour objectif de mettre en place un processus ETL qui permettra dans un second temps d’analyser les données afin de produire des insights. Avant toute chose, il semble nécessaire d’expliquer brièvement chaque donnée que nous allons étudier dans ce projet. A noter que ce projet est amené à évoluer en fonction des améliorations envisageables ainsi que les problématiques et les questionnements apportés par l’artiste.
 
-##### Explication des colonnes de Données des Réseaux Sociaux :
-**Couverture Facebook/Instagram**
-Nombre total de personnes qui ont vu le contenu sur Facebook/Instagram.
-**Visites Facebook/Instagram**
-Nombre de visites sur la page Facebook/Instagram.
-**Interactions Facebook/Instagram**
-Nombre total d'interactions sur les publications Facebook/Instagram (likes, commentaires, partages).
+##### Explication des colonnes de Données des Réseaux Sociaux :  
+**Couverture Facebook/Instagram**  
+Nombre total de personnes qui ont vu le contenu sur Facebook/Instagram.  
+**Visites Facebook/Instagram**  
+Nombre de visites sur la page Facebook/Instagram.  
+**Interactions Facebook/Instagram**  
+Nombre total d'interactions sur les publications Facebook/Instagram (likes, commentaires, partages).  
 
-##### Explication des colonnes de Données du Site Web :
-**Sessions**
-Nombre de sessions (visites) sur le site web.
-**Total Users**
-Nombre total d'utilisateurs distincts qui ont visité le site web.
-**Screen Page Views**
-Nombre total de pages vues (écrans) sur le site web.
-**Average Session Duration**
-Durée moyenne des sessions en secondes.
-**Bounce Rate**
-Taux de rebond, représentant le pourcentage de sessions où les utilisateurs quittent le site web après avoir vu une seule page.
-**Engaged Sessions**
-Nombre de sessions où les utilisateurs ont interagi de manière significative avec le site web (par exemple, pages visitées).
-**New Users**
-Nombre d'utilisateurs qui visitent le site web pour la première fois.
-**Event Count**
-Nombre total d'événements enregistrés sur le site web (comme les clics sur des boutons, les soumissions de formulaires, etc.).
+##### Explication des colonnes de Données du Site Web :  
+**Sessions**  
+Nombre de sessions (visites) sur le site web.  
+**Total Users**  
+Nombre total d'utilisateurs distincts qui ont visité le site web.  
+**Screen Page Views**  
+Nombre total de pages vues (écrans) sur le site web.  
+**Average Session Duration**  
+Durée moyenne des sessions en secondes.  
+**Bounce Rate**  
+Taux de rebond, représentant le pourcentage de sessions où les utilisateurs quittent le site web après avoir vu une seule page.  
+**Engaged Sessions**  
+Nombre de sessions où les utilisateurs ont interagi de manière significative avec le site web (par exemple, pages visitées).  
+**New Users**  
+Nombre d'utilisateurs qui visitent le site web pour la première fois.  
+**Event Count**  
+Nombre total d'événements enregistrés sur le site web (comme les clics sur des boutons, les soumissions de formulaires, etc.).  
 
 ### **1.3 Déroulé du projet**
 
