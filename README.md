@@ -29,15 +29,15 @@ Ce GitHub contient la totalité des versions permettant la mise en place du proc
 ## Sommaire
 
 - [1. Introduction](#1-introduction)
-- [1.1 Objectif du Projet](#1-1-objectif-du-projet)
-- [1.2 Approche du Projet](#1-2-approche-du-projet)
-- [1.3 Déroulé du projet](#1-3-déroulé-du-projet)
+- [1.1. Objectif du Projet](#1-1-objectif-du-projet)
+- [1.2. Approche du Projet](#1-2-approche-du-projet)
+- [1.3. Déroulé du projet](#1-3-déroulé-du-projet)
 - [2. Mise en place du pipeline de données](#2-mise-en-place-du-pipeline-de-données)
-- [2.1 Extraction des données](#2-1-extraction-des-données)
-- [2.2 Transformation des données](#2-2-transformation-des-données)
-- [2.3 Fusion des données](#2-3-fusion-des-données)
-- [2.4 Chargement des données](#2-4-chargement-des-données)
-- [2.5 Exécution du pipeline](#2-5-exécution-du-pipeline)
+- [2.1. Extraction des données](#2-1-extraction-des-données)
+- [2.2. Transformation des données](#2-2-transformation-des-données)
+- [2.3. Fusion des données](#2-3-fusion-des-données)
+- [2.4. Chargement des données](#2-4-chargement-des-données)
+- [2.5. Exécution du pipeline](#2-5-exécution-du-pipeline)
 
 ## **1. Introduction**
 
