@@ -54,7 +54,7 @@ def get_google_analytics_data():
         print("Les données ont été exportées avec succès vers extraction_donnees_site.csv")
 
     except HttpError as err:
-        print(f'Une erreur est survenue: {err}')
+        print(f'An error occurred: {err}')
 
 @task
 def merge_data():
