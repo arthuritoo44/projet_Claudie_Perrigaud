@@ -70,7 +70,8 @@ def merge_data():
     donnees_fusionnees = pd.merge(reseaux, site, on='date', how='outer')
     
     # Suppression des lignes contenant des valeurs manquantes
-    donnees_fusionnees.dropna(inplace=True)
+    # Remplacement des valeurs manquantes par 0
+    donnees_fusionnees.fillna(0, inplace=True)
 
     # Sauvegarde des données fusionnées
     donnees_fusionnees.to_csv('C:/Users/arthu/OneDrive/Documents/Projet_Claudie_Perrigaud/donnees_fusionnees.csv', index=False)
@@ -88,7 +89,7 @@ def save_to_mysql(dataframe):
         password='Mecano44!',      
         database='projet_claudie_perrigaud'    
     )
-    
+
     # Nom de table dynamique avec la date et l'heure pour éviter la suppression des données
     table_name = "analyse_donnees_" + datetime.now().strftime('%Y%m%d_%H%M%S')
     try:

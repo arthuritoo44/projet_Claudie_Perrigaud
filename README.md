@@ -1,8 +1,12 @@
-# **Projet: Analyse et Visualisation des Données Web et Réseaux Sociaux pour le Développement de l'Activité de Sculptrice de Claudie Perrigaud**
+# **Projet: Analyse et Visualisation des Données Web et Réseaux Sociaux pour le Développement de l'Activité de Sculptrice de Claudie Perrigaud** 🎨
 
 Ce GitHub contient la totalité des versions permettant la mise en place du processus ETL nécessaire à la valorisation des données du site internet et des réseaux sociaux de Claudie Perrigaud, artiste sculptrice. À noter que le projet est actuellement en cours de développement et va être amené à évoluer continuellement.
 
-## Prérequis
+![GitHub issues](https://img.shields.io/github/issues/arthuritoo44/projet_Claudie_Perrigaud)
+![GitHub forks](https://img.shields.io/github/forks/arthuritoo44/projet_Claudie_Perrigaud)
+![GitHub stars](https://img.shields.io/github/stars/arthuritoo44/projet_Claudie_Perrigaud)
+
+## 🛠️ Prérequis
 
 - **Python 3.x**
 - **Bibliothèques Python** : Prefect, pandas, pymysql, google-auth, google-api-python-client
@@ -22,11 +26,25 @@ Ce GitHub contient la totalité des versions permettant la mise en place du proc
    python data_pipeline.py
 3. Les résultats seront sauvegardés dans la base de données MySQL
 
+## Sommaire
 
-## Objectif du Projet:
-Le principal objectif est de mettre en place un processus ETL (Extract, Transform, Load) pour intégrer et analyser les données provenant de son site Web et de ses réseaux sociaux. Il sera crucial de sélectionner uniquement les données importantes afin de les exploiter par la suite.  Cette analyse sera visualisée à l'aide de Power BI pour fournir des insights exploitables qui aideront à optimiser les stratégies de marketing et à améliorer l'expérience utilisateur. Le projet inclura également l'utilisation de Git pour le suivi des modifications du code et des processus.
+- [1. Introduction](#1-introduction)
+- [1.1 Objectif du Projet](#1-1-objectif-du-projet)
+- [1.2 Approche du Projet](#1-2-approche-du-projet)
+- [1.3 Déroulé du projet](#1-3-déroulé-du-projet)
+- [2. Mise en place du pipeline de données](#2-mise-en-place-du-pipeline-de-données)
+- [2.1 Extraction des données](#2-1-extraction-des-données)
+- [2.2 Transformation des données](#2-2-transformation-des-données)
+- [2.3 Fusion des données](#2-3-fusion-des-données)
+- [2.4 Chargement des données](#2-4-chargement-des-données)
+- [2.5 Exécution du pipeline](#2-5-exécution-du-pipeline)
 
-## Approche du Projet:
+## **1. Introduction**
+
+### **1.1 Objectif du Projet**
+Le principal objectif est de **mettre en place un processus ETL** (Extract, Transform, Load) pour intégrer et analyser les données provenant de son site Web et de ses réseaux sociaux. Il sera crucial de sélectionner uniquement les données importantes afin de les exploiter par la suite.  Cette analyse sera visualisée à l'aide de Power BI pour fournir des insights exploitables qui aideront à optimiser les stratégies de marketing et à améliorer l'expérience utilisateur. Le projet inclura également l'utilisation de Git pour le suivi des modifications du code et des processus.
+
+### **1.2 Approche du Projet**
 #### Extraction des Données:
 Site Web: Utilisation de l'API Google Analytics pour extraire les données de trafic du site Web. Les données extraites incluront des métriques telles que les sessions, les utilisateurs, les vues de pages, la durée moyenne des sessions, et le taux de rebond.
 Réseaux Sociaux: Préparation pour l'extraction des données des réseaux sociaux, en particulier Instagram, à l'aide des API disponibles pour obtenir des métriques telles que les interactions, les mentions, et les performances des publications.
@@ -81,13 +99,13 @@ Nombre d'utilisateurs qui visitent le site web pour la première fois.
 **Event Count**
 Nombre total d'événements enregistrés sur le site web (comme les clics sur des boutons, les soumissions de formulaires, etc.).
 
-## **1. Introduction**
+### **1.3 Déroulé du projet**
 
 Ce projet va être construit autour d’une pipeline de données et ceci s’explique par différentes raisons. Tout d’abord, il implique l'intégration de données provenant de plusieurs sources (site web et réseaux sociaux), il est donc nécessaire de mettre plusieurs processus en place permettant le recueil, la transformation ainsi que la fusion des données. 
 Voici les raisons principales pour lesquelles une pipeline a été mise en place. Tout d’abord, cela va permettre d’automatiser certaines tâches répétitives et de réaliser une exécution de ce script à intervalle régulier. Dans notre cas, l’intervalle choisi est mensuel, ceci s’explique par la charge de données qui reste encore limitée. De plus, une analyse mensuelle semble être un bon compromis afin d’évaluer les résultats des différents ajustements mis en place afin d’améliorer le trafic du site internet et des réseaux sociaux de l’artiste. Ensuite, la pipeline de données assure la cohérence et la standardisation des données du fait que chaque fois que le script sera exécuté les mêmes transformations seront apportées que celle de l'échantillon précédent. Enfin, cela permet d’avoir un suivi sur la gestion des échecs afin de comprendre rapidement d'où provient le problème. Pour ce qui est de l’évolutivité du projet, il sera plus facile de rajouter des données avec un pipeline de données bien construit. 
 A noter que le choix de Prefect a été privilégié plutôt qu'Apache Airflow en raison des contraintes spécifiques liée à l’utilisation d’Airflow avec l'environnement Windows. Prefect a ainsi été choisi comme alternative notamment en raison de sa simplicité d'utilisation et de sa compatibilité avec les environnements Windows.
 
-## Mise en place du pipeline de données
+## **2. Mise en place du pipeline de données**
 Cette partie va récapituler les différentes étapes et les raisons pour lesquelles elles ont été mises en œuvre, ainsi que les choix techniques et les défis rencontrés. Avant de créer le script de pipeline complet, chaque partie du processus a été testée séparément. Cela permet de vérifier le bon fonctionnement de chaque composant et d'identifier les éventuelles problématiques pouvant apparaître avant d'intégrer toutes les étapes en un seul flux de travail. Afin de mieux comprendre la façon dont a été mis en place le pipeline, vous pouvez ouvrir le script data_pipeline.py qui contient la totalité du script qui va être détaillé par la suite. Avant toute chose, décrivons brièvement les tâches effectuées dans ce script.
 
 #### Extraction des Données :
@@ -100,7 +118,7 @@ Le script pour fusionner les données extraites avec celles des réseaux sociaux
 #### Chargement dans MySQL :
 Le script pour insérer les données dans la base de données MySQL a été testé pour garantir que les données étaient correctement insérées dans la base de données sans erreurs.
 
-## **2.1 Extraction des données**
+### **2.1 Extraction des données**
 L'extraction des données du site web via l'API Google Analytics est essentielle pour obtenir des métriques précises sur la performance du site. Étant donné que l’abonnement de l’artiste n’inclut pas la possibilité d’utiliser les API du site internet (squarespace), le choix s’est porté sur google analytics qui est relativement simple d’initialisation et d’utilisation et qui regroupe toutes les métriques importantes. Cette étape est automatisée pour se dérouler chaque mois afin de fournir des nouvelles données fraîches pour l'analyse.
 ```python
 @task
@@ -163,7 +181,7 @@ Nous rentrons ensuite dans le script les différentes métriques que nous souhai
 Il m’a semblé intéressant d’utiliser un bloc try-except afin de gérer les erreurs pouvant survenir. Dans le cas ou l’on fait face à une erreur, elle sera capturée par l’exception: except HttpError as err: print(f'Une erreur est survenue: {err}')
 Le script exporte ensuite les résultats de la requête dans un fichier csv avec en en-tête les métriques déterminées précédemment. Un message de confirmation mentionnant que l’export des données dans le fichier csv a réussi permet d’avoir une visibilité immédiate du résultat de la requête.
 
-## **2.2 Transformation des données**
+### **2.2 Transformation des données**
 
 La partie transformation et nettoyage des données a été directement imbriqué avec la seconde tâche de fusion des données. Pour ce qui est des valeurs manquantes, après études des données, nous remarquons qu’elles peuvent être remplacées par 0 au lieu d’être supprimées et ainsi perdre de l’information. Ceci étant effectuée via cette commande : donnees_fusionnees.fillna(0, inplace=True).
 Ensuite, il a été nécessaire d’harmoniser les dates en leur attribuant le même format via cette fonction :
@@ -201,7 +219,7 @@ def merge_data():
 ```
 La fonction merge_data est ensuite implémentée via Prefect, elle représente la deuxième étape de ce processus ETL. Elle se charge de fusionner les données provenant des réseaux sociaux et du site web avant leur stockage dans la base de données MySQL. Plusieurs fonctions Pandas sont utilisées dans cette tâche, la fonction pd.read_csv() permet le chargement des données des deux sources. La méthode pd.merge() est ensuite implémentée avec une jointure externe how=’outer’, cela signifie que la totalité des lignes des deux fichiers seront intégrées. Pour terminer, le fichier avec les données fusionnées est ensuite sauvegardé au format csv dans le répertoire du projet.
 
-## **2.4 Chargement des données**
+### **2.4 Chargement des données**
 ```python
 @task
 def save_to_mysql(dataframe):
@@ -268,7 +286,7 @@ Après s’être connectée à la base de données initialisée pour cette table
 La table est ensuite créé avec toutes les colonnes nécessaires pour accueillir les données. Elles sont insérées via une requête SQL INSERT INTO et la méthode cursor.execute() parcours chaque ligne du dataframe et insère les valeurs. Les données insérées sont ensuite validées via la commande connection.commit() qui permet l’enregistrement permanent dans la table MySQL. La connexion est ensuite fermée afin de libérer les ressources et éviter des connexions inutiles. Cette étape permet l’enregistrement dans une base de données MySQL avec un système assez flexible permettant une persistance des données et un historique bien défini.
 
 
-## **2.5 Exécution du pipeline**
+### **2.5 Exécution du pipeline**
 
 ```python
 @flow
