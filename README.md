@@ -42,7 +42,9 @@ Ce GitHub contient la totalité des versions permettant la mise en place du proc
 ## **1. Introduction**
 
 ### **1.1 Objectif du Projet**
-Le principal objectif est de **mettre en place un processus ETL** (Extract, Transform, Load) pour intégrer et analyser les données provenant de son site Web et de ses réseaux sociaux. Il sera crucial de sélectionner uniquement les données importantes afin de les exploiter par la suite.  Cette analyse sera visualisée à l'aide de Power BI pour fournir des insights exploitables qui aideront à optimiser les stratégies de marketing et à améliorer l'expérience utilisateur. Le projet inclura également l'utilisation de Git pour le suivi des modifications du code et des processus.
+Le principal objectif est de **mettre en place un processus ETL** (Extract, Transform, Load) pour intégrer et analyser les données provenant de son site Web et de ses réseaux sociaux. Il sera crucial de sélectionner uniquement les données importantes afin de les exploiter par la suite.  Cette analyse sera visualisée à l'aide de Power BI pour fournir des insights exploitables qui aideront à optimiser les stratégies de marketing et à améliorer l'expérience utilisateur. Le projet inclura également l'utilisation de Git pour le suivi des modifications du code et des processus. Le diagramme représentant le flux de données du processus ETL mis en place permet une meilleure compréhension de ce qui va être mis en place 
+
+![Diagramme pipeline](Diagramme_pipeline.png)
 
 ### **1.2 Approche du Projet**
 #### Extraction des Données:
@@ -73,7 +75,7 @@ Prise de Décision Éclairée: Capacités de prise de décision basées sur des 
 #### Explication des données
 Ce projet a pour objectif de mettre en place un processus ETL qui permettra dans un second temps d’analyser les données afin de produire des insights. Avant toute chose, il semble nécessaire d’expliquer brièvement chaque donnée que nous allons étudier dans ce projet. A noter que ce projet est amené à évoluer en fonction des améliorations envisageables ainsi que les problématiques et les questionnements apportés par l’artiste.
 
-##### Explication des colonnes de Données des Réseaux Sociaux :  
+#### Explication des colonnes de Données des Réseaux Sociaux :  
 **Couverture Facebook/Instagram**  
 Nombre total de personnes qui ont vu le contenu sur Facebook/Instagram.  
 **Visites Facebook/Instagram**  
@@ -81,7 +83,7 @@ Nombre de visites sur la page Facebook/Instagram.
 **Interactions Facebook/Instagram**  
 Nombre total d'interactions sur les publications Facebook/Instagram (likes, commentaires, partages).  
 
-##### Explication des colonnes de Données du Site Web :  
+#### Explication des colonnes de Données du Site Web :  
 **Sessions**  
 Nombre de sessions (visites) sur le site web.  
 **Total Users**  
