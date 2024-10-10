@@ -1,0 +1,5 @@
+name: "Monthly ETL Pipeline"
+flow_name: "data_pipeline"
+entrypoint: "data_pipeline.py:data_pipeline"
+schedule:
+  cron: "0 0 1 * *"
