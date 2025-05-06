@@ -1,0 +1,86 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: projet_claudie_perrigaud-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Mecano44!
+      MYSQL_DATABASE: projet_claudie_perrigaud
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "mysql"]
+      timeout: 5s
+      retries: 5
+    networks:
+      - airflow_network
+#nouveau service `airflow-init` qui est responsable *uniquement* de l'exécution de `airflow db init`.
+#airflow-webserver` et `airflow-scheduler` dépendent maintenant de `airflow-init` avec `condition: service_completed`.
+# Cela garantit qu'ils ne démarrent qu'après que `airflow db init` s'est terminé avec succès.
+  airflow-init: # Nouveau service pour l'initialisation
+    build: .
+    image: my-airflow-init
+    container_name: projet_claudie_perrigaud-airflow-init
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+pymysql://root:Mecano44!@mysql/projet_claudie_perrigaud
+    command: airflow db init
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - airflow_network
+
+  airflow-webserver:
+    build: .
+    image: my-airflow-webserver
+    container_name: projet_claudie_perrigaud-airflow-webserver-1
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+pymysql://root:Mecano44!@mysql/projet_claudie_perrigaud
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.deny_all
+      - AIRFLOW__SECURITY__USER_CREATE_ADMIN_USER=True
+      - AIRFLOW__SECURITY__USER_CREATE_ADMIN_USERNAME=arthur
+      - AIRFLOW__SECURITY__USER_CREATE_ADMIN_PASSWORD=Mecano44!
+      - AIRFLOW__SECURITY__USER_CREATE_ADMIN_EMAIL=arthurhoussais56@gmail.com
+      - AIRFLOW__LOGGING__BASE_LOG_FOLDER=/opt/airflow/logs
+      - AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION=/opt/airflow/logs/dag_processor_manager/dag_processor_manager.log
+    command: webserver
+    ports:
+      - "8080:8080"
+    volumes: #volumes pour le partage de fichiers entre le conteneur et l'hôte
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./google_credentials:/opt/airflow/google_credentials
+      - ./logs:/opt/airflow/logs
+    depends_on:
+      airflow-init: # Dépend de l'initialisation
+        condition: service_completed_successfully
+    networks:
+      - airflow_network
+
+  airflow-scheduler:
+    build: .
+    image: my-airflow-scheduler
+    container_name: projet_claudie_perrigaud-airflow-scheduler-1
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+pymysql://root:Mecano44!@mysql/projet_claudie_perrigaud
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.deny_all
+      - AIRFLOW__LOGGING__BASE_LOG_FOLDER=/opt/airflow/logs
+      - AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION=/opt/airflow/logs/dag_processor_manager/dag_processor_manager.log
+    command: scheduler
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./google_credentials:/opt/airflow/google_credentials
+      - ./logs:/opt/airflow/logs
+    depends_on:
+      airflow-init: # Dépend de l'initialisation
+        condition: service_completed_successfully
+    networks:
+      - airflow_network
+
+networks:
+  airflow_network:
+    driver: bridge

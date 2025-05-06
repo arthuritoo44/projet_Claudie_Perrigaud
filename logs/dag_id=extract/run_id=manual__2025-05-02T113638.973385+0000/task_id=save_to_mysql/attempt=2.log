@@ -1,0 +1,37 @@
+[2025-05-02T11:43:52.782+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract.save_to_mysql manual__2025-05-02T11:36:38.973385+00:00 [queued]>
+[2025-05-02T11:43:52.801+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract.save_to_mysql manual__2025-05-02T11:36:38.973385+00:00 [queued]>
+[2025-05-02T11:43:52.802+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-05-02T11:43:52.841+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): save_to_mysql> on 2025-05-02 11:36:38.973385+00:00
+[2025-05-02T11:43:52.864+0000] {standard_task_runner.py:57} INFO - Started process 223 to run task
+[2025-05-02T11:43:52.874+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'extract', 'save_to_mysql', 'manual__2025-05-02T11:36:38.973385+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/extract.py', '--cfg-path', '/tmp/tmp_0cvyzgu']
+[2025-05-02T11:43:52.887+0000] {standard_task_runner.py:85} INFO - Job 37: Subtask save_to_mysql
+[2025-05-02T11:43:53.063+0000] {task_command.py:410} INFO - Running <TaskInstance: extract.save_to_mysql manual__2025-05-02T11:36:38.973385+00:00 [running]> on host 0cfc4ae0b1cd
+[2025-05-02T11:43:53.307+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='extract' AIRFLOW_CTX_TASK_ID='save_to_mysql' AIRFLOW_CTX_EXECUTION_DATE='2025-05-02T11:36:38.973385+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-02T11:36:38.973385+00:00'
+[2025-05-02T11:43:53.375+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 650, in connect
+    (self.host, self.port), self.connect_timeout, **kwargs
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/extract.py", line 100, in save_to_mysql
+    port=3306
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+[2025-05-02T11:43:53.394+0000] {taskinstance.py:1373} INFO - Marking task as FAILED. dag_id=extract, task_id=save_to_mysql, execution_date=20250502T113638, start_date=20250502T114352, end_date=20250502T114353
+[2025-05-02T11:43:53.426+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 37 for task save_to_mysql ((2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)"); 223)
+[2025-05-02T11:43:53.450+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-05-02T11:43:53.493+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,57 @@
+[2025-05-02T09:48:16.793+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract.extract_google_analytics_data manual__2025-05-02T09:48:06.197425+00:00 [queued]>
+[2025-05-02T09:48:16.811+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract.extract_google_analytics_data manual__2025-05-02T09:48:06.197425+00:00 [queued]>
+[2025-05-02T09:48:16.812+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-05-02T09:48:16.844+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): extract_google_analytics_data> on 2025-05-02 09:48:06.197425+00:00
+[2025-05-02T09:48:16.855+0000] {standard_task_runner.py:57} INFO - Started process 278 to run task
+[2025-05-02T09:48:16.863+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'extract', 'extract_google_analytics_data', 'manual__2025-05-02T09:48:06.197425+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/extract.py', '--cfg-path', '/tmp/tmpxegpgklo']
+[2025-05-02T09:48:16.866+0000] {standard_task_runner.py:85} INFO - Job 10: Subtask extract_google_analytics_data
+[2025-05-02T09:48:16.949+0000] {task_command.py:410} INFO - Running <TaskInstance: extract.extract_google_analytics_data manual__2025-05-02T09:48:06.197425+00:00 [running]> on host c31b3edb3fb4
+[2025-05-02T09:48:17.120+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='extract' AIRFLOW_CTX_TASK_ID='extract_google_analytics_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-02T09:48:06.197425+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-02T09:48:06.197425+00:00'
+[2025-05-02T09:48:17.222+0000] {__init__.py:48} WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/__init__.py", line 44, in autodetect
+    from . import file_cache
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+[2025-05-02T09:48:17.593+0000] {__init__.py:48} WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/__init__.py", line 44, in autodetect
+    from . import file_cache
+  File "/home/airflow/.local/lib/python3.7/site-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+[2025-05-02T09:48:17.838+0000] {extract.py:31} INFO - Début de l'extraction des données Google Analytics.
+[2025-05-02T09:48:18.920+0000] {extract.py:62} INFO - Données exportées vers /opt/airflow/data/extraction_donnees_site.csv
+[2025-05-02T09:48:18.921+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-05-02T09:48:18.946+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=extract, task_id=extract_google_analytics_data, execution_date=20250502T094806, start_date=20250502T094816, end_date=20250502T094818
+[2025-05-02T09:48:19.007+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-05-02T09:48:19.047+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

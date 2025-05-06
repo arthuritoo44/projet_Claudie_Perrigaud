@@ -1,0 +1,40 @@
+[2025-05-02T10:57:06.147+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract.save_to_mysql manual__2025-05-02T10:51:38.188757+00:00 [queued]>
+[2025-05-02T10:57:06.172+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract.save_to_mysql manual__2025-05-02T10:51:38.188757+00:00 [queued]>
+[2025-05-02T10:57:06.173+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-05-02T10:57:06.216+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): save_to_mysql> on 2025-05-02 10:51:38.188757+00:00
+[2025-05-02T10:57:06.239+0000] {standard_task_runner.py:57} INFO - Started process 796 to run task
+[2025-05-02T10:57:06.245+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'extract', 'save_to_mysql', 'manual__2025-05-02T10:51:38.188757+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/extract.py', '--cfg-path', '/tmp/tmpfy9v1rtw']
+[2025-05-02T10:57:06.249+0000] {standard_task_runner.py:85} INFO - Job 22: Subtask save_to_mysql
+[2025-05-02T10:57:06.462+0000] {task_command.py:410} INFO - Running <TaskInstance: extract.save_to_mysql manual__2025-05-02T10:51:38.188757+00:00 [running]> on host 6690b4f855db
+[2025-05-02T10:57:06.797+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='extract' AIRFLOW_CTX_TASK_ID='save_to_mysql' AIRFLOW_CTX_EXECUTION_DATE='2025-05-02T10:51:38.188757+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-02T10:51:38.188757+00:00'
+[2025-05-02T10:57:06.851+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/extract.py", line 93, in save_to_mysql
+    dataframe = pd.read_csv(fusion_path)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/common.py", line 614, in get_handle
+    storage_options=storage_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/common.py", line 396, in _get_filepath_or_buffer
+    raise ValueError(msg)
+ValueError: Invalid file path or buffer object type: <class 'NoneType'>
+[2025-05-02T10:57:06.897+0000] {taskinstance.py:1373} INFO - Marking task as FAILED. dag_id=extract, task_id=save_to_mysql, execution_date=20250502T105138, start_date=20250502T105706, end_date=20250502T105706
+[2025-05-02T10:57:06.943+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 22 for task save_to_mysql (Invalid file path or buffer object type: <class 'NoneType'>; 796)
+[2025-05-02T10:57:06.984+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-05-02T10:57:07.021+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

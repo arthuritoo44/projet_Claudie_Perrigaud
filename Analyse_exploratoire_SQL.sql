@@ -37,7 +37,7 @@ SELECT
 FROM 
     analyse_donnees 
 WHERE 
-    DATE BETWEEN '2024-08-01' AND '2024-08-31' 
+    DATE BETWEEN '2024-08-01' AND '2024-12-08' 
 GROUP BY 
     DATE;
     
@@ -97,4 +97,29 @@ FROM
 -- Afin de pouvoir visualiser les tendances et comparer les résultats entre
 -- le site internet et les réseaux nous allons continuer l'analyse via PowerBi.
 
-
+-- Insertion des données dans la première table
+INSERT INTO analyse_donnees (date, couverture_facebook, visites_facebook, interactions_facebook, 
+                             couverture_instagram, interactions_instagram, visites_instagram, 
+                             sessions, totalUsers, screenPageViews, averageSessionDuration, 
+                             bounceRate, engagedSessions, newUsers, eventCount)
+SELECT 
+    date, 
+    couverture_facebook, 
+    visites_facebook, 
+    interactions_facebook,
+    couverture_instagram,
+    interactions_instagram,
+    visites_instagram,
+    sessions,
+    totalUsers,
+    screenPageViews,
+    averageSessionDuration,
+    bounceRate,
+    engagedSessions,
+    newUsers,
+    eventCount
+FROM 
+    analyse_donnees_20241209_114158
+WHERE 
+    date >= '2023-10-08';  
+    

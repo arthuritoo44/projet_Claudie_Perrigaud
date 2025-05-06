@@ -1,0 +1,14 @@
+[2025-05-02T12:17:26.051+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract.save_to_mysql manual__2025-05-02T12:17:00.782054+00:00 [queued]>
+[2025-05-02T12:17:26.080+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract.save_to_mysql manual__2025-05-02T12:17:00.782054+00:00 [queued]>
+[2025-05-02T12:17:26.081+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-05-02T12:17:26.139+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): save_to_mysql> on 2025-05-02 12:17:00.782054+00:00
+[2025-05-02T12:17:26.157+0000] {standard_task_runner.py:57} INFO - Started process 416 to run task
+[2025-05-02T12:17:26.166+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'extract', 'save_to_mysql', 'manual__2025-05-02T12:17:00.782054+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/extract.py', '--cfg-path', '/tmp/tmp8we_8391']
+[2025-05-02T12:17:26.171+0000] {standard_task_runner.py:85} INFO - Job 7: Subtask save_to_mysql
+[2025-05-02T12:17:26.351+0000] {task_command.py:410} INFO - Running <TaskInstance: extract.save_to_mysql manual__2025-05-02T12:17:00.782054+00:00 [running]> on host c801b3fc66e3
+[2025-05-02T12:17:26.690+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='extract' AIRFLOW_CTX_TASK_ID='save_to_mysql' AIRFLOW_CTX_EXECUTION_DATE='2025-05-02T12:17:00.782054+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-02T12:17:00.782054+00:00'
+[2025-05-02T12:17:27.238+0000] {extract.py:140} INFO - Données insérées dans la table analyse_donnees_20250502_121726.
+[2025-05-02T12:17:27.240+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-05-02T12:17:27.281+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=extract, task_id=save_to_mysql, execution_date=20250502T121700, start_date=20250502T121726, end_date=20250502T121727
+[2025-05-02T12:17:27.386+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-05-02T12:17:27.456+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
