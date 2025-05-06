@@ -1,4 +1,4 @@
-# **Projet: Analyse et Visualisation des Données Web et Réseaux Sociaux pour le Développement de l'Activité de Sculptrice de Claudie Perrigaud** 🎨
+# **Projet: Analyse et Visualisation des Données Web et Réseaux Sociaux pour le Développement de l'Activité d'une Sculptrice** 🎨
 
 Ce GitHub contient la totalité des versions permettant la mise en place du processus ETL nécessaire à la valorisation des données du site internet et des réseaux sociaux de Claudie Perrigaud, artiste sculptrice. À noter que le projet est actuellement en cours de développement et va être amené à évoluer continuellement.
 
@@ -9,6 +9,7 @@ Ce GitHub contient la totalité des versions permettant la mise en place du proc
 ## 🛠️ Prérequis
 
 - **Python 3.x**
+- **Airflow**
 - **Bibliothèques Python** : Prefect, pandas, pymysql, google-auth, google-api-python-client
 - **Accès à Google Analytics API**
 - **Base de données MySQL**
@@ -21,9 +22,8 @@ Ce GitHub contient la totalité des versions permettant la mise en place du proc
 
 
 ## Exécution
-1. Placez les fichiers `extraction_donnees_reseaux.csv` et `extraction_donnees_site.csv` dans le même répertoire que le script `data_pipeline.py`.
 2. Exécutez le script avec la commande suivante :
-   python data_pipeline.py
+   Docker-compose up --build
 3. Les résultats seront sauvegardés dans la base de données MySQL
 
 ## Sommaire
